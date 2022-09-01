@@ -1,6 +1,6 @@
 *{
-    margin: 0!important;
-    padding: 0 !important;
+    margin: 0;
+    padding: 0;
 }
 body{
     width: 100vw;
@@ -21,4 +21,7 @@ body{
 #app > div{
     box-sizing: border-box;
     max-width: 286px;
+}
+.btn-primary{
+    width: 50%;
 }

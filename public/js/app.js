@@ -26,10 +26,11 @@ fetch('public/php/data.php').then(
                 let random = randomPricing();
                 createElement("div", "product"+i, "app", "card", "","","");
                 createElement("img", "", "product"+i , "card-img-top", "public/images/cardImage.svg", "", "image produit");
-                createElement("div", "descProduct"+i, "product"+i, "card-body d-flex flex-column justify-content-around align-items-center", "","","");
+                createElement("div", "descProduct"+i, "product"+i, "card-body d-flex flex-column justify-content-around", "","","");
                 createElement("h5", "", "descProduct"+i,"card-title", "","Product "+i,"")
-                createElement("p", "", "descProduct"+i,"text-center", "",dataParse.desc,"");
+                createElement("p", "", "descProduct"+i,"", "",dataParse.desc,"");
                 createElement("p", "", "descProduct"+i,"", "","Prix:","");
                 createElement("p", "", "descProduct"+i,"", "",random+" €" ,"");
+                createElement("button", "", "descProduct"+i,"btn btn-primary", "","En Savoir Plus","")
             }
         }))
