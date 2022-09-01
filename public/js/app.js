@@ -27,7 +27,7 @@ fetch('public/php/data.php').then(
                 createElement("div", "product"+i, "app", "card", "","","");
                 createElement("img", "", "product"+i , "card-img-top", "public/images/cardImage.svg", "", "image produit");
                 createElement("div", "descProduct"+i, "product"+i, "card-body d-flex flex-column justify-content-around align-items-center", "","","");
-                createElement("h5", "", "descProduct"+i,"card-title", "","Product"+i,"")
+                createElement("h5", "", "descProduct"+i,"card-title", "","Product "+i,"")
                 createElement("p", "", "descProduct"+i,"text-center", "",dataParse.desc,"");
                 createElement("p", "", "descProduct"+i,"", "","Prix:","");
                 createElement("p", "", "descProduct"+i,"", "",random+" €" ,"");
