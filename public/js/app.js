@@ -16,23 +16,19 @@ linkCss.insertAdjacentHTML('beforebegin', '<link href="https://cdn.jsdelivr.net/
 document.querySelector('body >script').insertAdjacentHTML('beforebegin', '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>')
 // retrieving data from data.php
 fetch('public/php/data.php').then(
-    response => response.text().then(
+    response => response.json().then(
         data =>{
-            // deleting useless \
-            data.replaceAll('\\', '')
-            // parsing to a json format
-            dataParse = JSON.parse(data);
             // loop for creation Of all Card with the previously retrieved data 
-            for (let i = 0; i < dataParse.length; i++) {
-                createElement("div", dataParse[i].ID, "app", "card", "","","");
-                createElement("img", "", dataParse[i].ID , "card-img-top", "public/images/cardImage.svg", "", "image produit");
-                createElement("div", "descProduct"+i, dataParse[i].ID, "card-body d-flex flex-column justify-content-around", "","","");
-                createElement("h5", "", "descProduct"+i,"card-title", "",dataParse[i].title,"")
-                createElement("p", "", "descProduct"+i,"", "",dataParse[i].desc,"");
+            for (let i = 0; i < data.length; i++) {
+                createElement("div", data[i].ID, "app", "card", "","","");
+                createElement("img", "", data[i].ID , "card-img-top", "public/images/cardImage.svg", "", "image produit");
+                createElement("div", "descProduct"+i, data[i].ID, "card-body d-flex flex-column justify-content-around", "","","");
+                createElement("h5", "", "descProduct"+i,"card-title", "",data[i].title,"")
+                createElement("p", "", "descProduct"+i,"", "",data[i].desc,"");
                 createElement("p", "", "descProduct"+i,"", "","Prix:","");
-                createElement("p", "", "descProduct"+i,"", "",dataParse[i].pricing+" €" ,"");
+                createElement("p", "", "descProduct"+i,"", "",data[i].pricing+" €" ,"");
                 createElement("p", "", "descProduct"+i,"", "","ID:","");
-                createElement("p", "", "descProduct"+i,"", "",dataParse[i].ID,"");
+                createElement("p", "", "descProduct"+i,"", "",data[i].ID,"");
                 createElement("button", "", "descProduct"+i,"btn btn-primary", "","En Savoir Plus","")
             }
 }))
